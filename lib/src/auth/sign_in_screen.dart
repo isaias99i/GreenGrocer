@@ -14,10 +14,34 @@ class SignInScreen extends StatelessWidget {
           Expanded(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: const [             
-              Text('Greengrocer'),
-              Text('Frutas'),
-            ],
+              children: const [
+
+                //Nome do App
+                Text.rich(
+                  TextSpan(
+                    style: TextStyle(
+                      fontSize: 40,
+                    ),
+                    children: [
+                      TextSpan(
+                        text: 'Green',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    TextSpan(
+                      text: 'grocer',
+                      style: TextStyle(
+                        color: Colors.red
+                      )
+
+                    ),
+                    ],
+                  ),
+                ),
+                Text('Frutas'),
+              ],
             ),
           ),
 
