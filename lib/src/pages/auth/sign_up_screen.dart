@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:greengrocer/src/auth/components/custom_text_field.dart';
 import 'package:greengrocer/src/config/custom_color.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
+
+import 'components/custom_text_field.dart';
 
 class SignUpScreen extends StatelessWidget {
   SignUpScreen({Key? key}) : super(key: key);
@@ -29,7 +30,7 @@ class SignUpScreen extends StatelessWidget {
             children: [
               Column(
                 children: [
-                  Expanded(
+                  const Expanded(
                     child: Center(
                       child: Text(
                         'Cadastro',
