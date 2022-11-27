@@ -1,14 +1,17 @@
-import 'package:flutter/material.dart';
+ import 'package:flutter/material.dart';
 import 'package:greengrocer/src/config/custom_color.dart';
 
 class QuantityWidget extends StatelessWidget {
-
   final int value;
   final String suffixText;
   final Function(int quantity) result;
 
-
-  const QuantityWidget({Key? key, required this.suffixText, required this.value}) : super(key: key);
+  const QuantityWidget({
+    Key? key,
+    required this.suffixText,
+    required this.value,
+    required this.result,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +24,7 @@ class QuantityWidget extends StatelessWidget {
           BoxShadow(
             color: Colors.grey.shade300,
             spreadRadius: 1,
-            blurRadius: 1,
+            blurRadius: 2,
           )
         ],
       ),
@@ -30,12 +33,17 @@ class QuantityWidget extends StatelessWidget {
           _QuantityButton(
             icon: Icons.remove,
             color: Colors.grey,
-            onPressed: () {},
+            onPressed: () {
+              if(value ==1) return;
+              
+              int resultCount = value - 1;
+              result(resultCount);
+            },
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 6),
             child: Text(
-              '$value $suffixText',
+              '$value$suffixText',
               style: const TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.bold,
@@ -45,7 +53,10 @@ class QuantityWidget extends StatelessWidget {
           _QuantityButton(
             icon: Icons.add,
             color: CustomColors.customSwatchColor,
-            onPressed: () {},
+            onPressed: () {
+              int resultCount = value + 1;
+              result(resultCount);
+            },
           ),
         ],
       ),
@@ -70,7 +81,7 @@ class _QuantityButton extends StatelessWidget {
     return Material(
       child: InkWell(
         borderRadius: BorderRadius.circular(50),
-        onTap: () {},
+        onTap: onPressed,
         child: Ink(
           height: 25,
           width: 25,
