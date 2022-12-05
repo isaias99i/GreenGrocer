@@ -92,22 +92,51 @@ UserModel user = UserModel(
 );
 
 List<OrderModel> orders = [
+  //Pedido 01
   OrderModel(
     id: 'pso1kap2ska3',
     createdDateTime: DateTime.parse(
-      '2022-12-05 10:02:12:555',
+      '2022-12-05 10:02:12.555',
     ),
     overdueDateTime: DateTime.parse(
-      '2022-12-05 10:02:12:555',
+      '2022-12-05 10:02:12.555',
     ),
     items: [
       CartItemModel(
         item: apple,
         quantity: 2,
       ),
+      CartItemModel(
+        item: mango,
+        quantity: 3,
+      ),
     ],
     status: 'pending_payment',
     copyAndPaste: 'pas4oka5pso6',
     total: 11.0,
+  ),
+
+  //Pedido 02
+  OrderModel(
+    id: 'kpasok5psoksadp54',
+    createdDateTime: DateTime.parse(
+      '2022-09-05 10:02:12.555',
+    ),
+    overdueDateTime: DateTime.parse(
+      '2022-09-05 10:12:12.555',
+    ),
+    items: [
+      CartItemModel(
+        item: papaya,
+        quantity: 2,
+      ),
+      CartItemModel(
+        item: grape,
+        quantity: 3,
+      ),
+    ],
+    status: 'payed',
+    copyAndPaste: 'ahsauh4aush423u',
+    total: 38.2,
   )
 ];
