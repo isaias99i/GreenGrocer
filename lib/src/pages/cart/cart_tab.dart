@@ -19,6 +19,7 @@ class _CartTabState extends State<CartTab> {
   void removeItemFromCart(CartItemModel cartItem) {
     setState(() {
       appData.cartItems.remove(cartItem);
+      utilsServices.showToast(message: '${cartItem.item.itemName} removido(a) do carrinho');
     });
   }
 
@@ -40,6 +41,7 @@ class _CartTabState extends State<CartTab> {
       ),
       body: Column(
         children: [
+          //Lista de Itens do Carrinho
           Expanded(
             child: ListView.builder(
               itemCount: appData.cartItems.length,
@@ -60,6 +62,7 @@ class _CartTabState extends State<CartTab> {
               },
             ),
           ),
+          // Total e botão de concluir o pedido
           Container(
             padding: EdgeInsets.all(16),
             decoration: BoxDecoration(
