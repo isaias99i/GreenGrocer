@@ -1,6 +1,6 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-
+import 'package:greengrocer/src/pages/common_widgets/app_name_widget.dart';
 
 import '../../config/custom_color.dart';
 import '../base/base_screen.dart';
@@ -27,28 +27,11 @@ class SignInScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     //Nome do App
-                    Text.rich(
-                      TextSpan(
-                        style: const TextStyle(
-                          fontSize: 40,
-                        ),
-                        children: [
-                          const TextSpan(
-                            text: 'Green',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          TextSpan(
-                              text: 'grocer',
-                              style: TextStyle(
-                                color: CustomColors.customContrastColor,
-                              )),
-                        ],
-                      ),
+                    const AppNameWidget(
+                      greenTitleColor: Colors.white,
+                      textSize: 40,
                     ),
-      
+
                     //Categorias
                     SizedBox(
                       height: 30,
@@ -71,10 +54,11 @@ class SignInScreen extends StatelessWidget {
                   ],
                 ),
               ),
-      
+
               //Formulário
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 40),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 32, vertical: 40),
                 decoration: const BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.vertical(
@@ -89,14 +73,14 @@ class SignInScreen extends StatelessWidget {
                       icon: Icons.email,
                       label: 'E-mail',
                     ),
-      
+
                     //Senha
                     const CustomTextField(
                       icon: Icons.lock,
                       label: 'Password',
                       isSecret: true,
                     ),
-      
+
                     //Botão de entrar
                     SizedBox(
                       height: 50,
@@ -105,7 +89,8 @@ class SignInScreen extends StatelessWidget {
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(18))),
                         onPressed: () {
-                          Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (c){
+                          Navigator.of(context)
+                              .pushReplacement(MaterialPageRoute(builder: (c) {
                             return const BaseScreen();
                           }));
                         },
@@ -117,7 +102,7 @@ class SignInScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-      
+
                     //Esqueceu a senha
                     Align(
                       alignment: Alignment.centerRight,
@@ -131,7 +116,7 @@ class SignInScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-      
+
                     //Divisor
                     Padding(
                       padding: const EdgeInsets.only(bottom: 10),
@@ -156,7 +141,7 @@ class SignInScreen extends StatelessWidget {
                         ],
                       ),
                     ),
-      
+
                     //Botão de Novo Usuário
                     SizedBox(
                       height: 50,
